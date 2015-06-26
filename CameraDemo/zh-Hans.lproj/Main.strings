@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "调用系统自带相机-拍照"; ObjectID = "1qc-Nv-JFN"; */
+"1qc-Nv-JFN.normalTitle" = "调用系统自带相机-拍照";
+
+/* Class = "UIButton"; normalTitle = "录像"; ObjectID = "Gim-Xp-xtc"; */
+"Gim-Xp-xtc.normalTitle" = "录像";
+
+/* Class = "UIButton"; normalTitle = "获取图片-图片列表"; ObjectID = "bmZ-5S-zsN"; */
+"bmZ-5S-zsN.normalTitle" = "获取图片-图片列表";
+
+/* Class = "UIButton"; normalTitle = "获取图片-相册"; ObjectID = "x9l-o1-bL8"; */
+"x9l-o1-bL8.normalTitle" = "获取图片-相册";

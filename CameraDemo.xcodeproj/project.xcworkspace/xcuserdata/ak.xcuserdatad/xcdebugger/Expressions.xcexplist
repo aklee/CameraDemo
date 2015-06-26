@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[MyCameraViewController imagePickerController:didFinishPickingMediaWithInfo:]:MyCameraViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "original">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ViewController imagePickerController:didFinishPickingMediaWithInfo:]:ViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "original">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
