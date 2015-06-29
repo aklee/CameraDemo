@@ -33,7 +33,6 @@
 - (IBAction)chooseImage:(id)sender;
 
 
-
 @end
 @implementation CustomerCameraView
 

@@ -38,6 +38,7 @@
     self.layer.borderColor=[UIColor redColor].CGColor;
     self.layer.borderWidth=1;
 }
+
 -(void)dismiss{
     [UIView animateWithDuration:1.f
                      animations:^{
@@ -49,6 +50,8 @@
 
     
 }
+
+
 -(void)present{
   
     self.alpha=1;
@@ -56,6 +59,7 @@
     CAKeyframeAnimation *kfa = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
     
     CGFloat s =1.0;
+    //设置缩放程度
     CGFloat space=0.2;
 
     kfa.values = @[@(s-space),@(s),@(s+space),@(s)];

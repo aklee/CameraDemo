@@ -18,12 +18,15 @@
 @property(nonatomic,weak)UIImagePickerController*imagePickerVC;
 @property(nonatomic,weak) CustomerCameraView*cameraView;
 
+
 @property(nonatomic,assign)CGPoint focusPoint;
-//对焦层
+
+//自定义对焦层
 @property(nonatomic,strong)FocusView *focusView;
 @end
 
 @implementation MyCameraViewController
+
 -(FocusView *)focusView{
     if (!_focusView) {
         _focusView=[FocusView FocusView];
@@ -31,6 +34,7 @@
     }
     return  _focusView;
 }
+// register observer
 -(void)viewWillAppear:(BOOL)animated{
    
     AVCaptureDevice*camDevice =[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -47,18 +51,19 @@
     
     [super viewWillDisappear:animated];
 }
-
+//对焦处理
 -(void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context {
     if([keyPath isEqualToString:@"adjustingFocus"]){
         BOOL adjustingFocus =[[change objectForKey:NSKeyValueChangeNewKey] isEqualToNumber:[NSNumber numberWithInt:1]];
         NSLog(@"Is adjusting focus? %@", adjustingFocus ?@"YES":@"NO");
         NSLog(@"Change dictionary: %@", change);
+        self.focusView.center=self.focusPoint;
         if (adjustingFocus) {
-            self.focusView.center=self.focusPoint;
+            //焦点出现
             [self.focusView present];
         }
         else{
-            self.focusView.center=self.focusPoint;
+            //焦点隐藏
             [self.focusView dismiss];
         }
     }
@@ -66,10 +71,14 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch*touch=    [touches anyObject];
-    CGPoint p=    [touch locationInView:self.view];
+    CGPoint p=[touch locationInView:self.view];
+    //记录触点
     self.focusPoint=p;
     NSLog(@"%@",NSStringFromCGPoint(p));
 }
+
+
+
 - (void)viewDidLoad {
 
     [super viewDidLoad];
@@ -91,30 +100,9 @@
     //建议 使用animation 动态展示相机层
     [self.view addSubview:self.imagePickerVC.view];
     
-    
-    //实例化
-//    AVCaptureDevice  *captureDevice = [[AVCaptureDevice alloc] init];
-    
-
-//    //先进行判断是否支持控制对焦
-//    if (captureDevice.isFocusPointOfInterestSupported &&[captureDevice isFocusModeSupported:AVCaptureFocusModeAutoFocus]) {
-//        
-//        NSError *error = nil;
-//        //对cameraDevice进行操作前，需要先锁定，防止其他线程访问，
-////        [self.recorder.cameraDevice lockForConfiguration:&error];
-////        [self.recorder.cameraDevice setFocusMode:AVCaptureFocusModeAutoFocus];
-////        [self.recorder.cameraDevice setFocusPointOfInterest:CGPointMake(pointX,pointY)];
-////        //操作完成后，记得进行unlock。
-////        [self.recorder.cameraDevice unlockForConfiguration];
-//    }
-//    UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap:)];
-//    [self.view addGestureRecognizer:tap];
-    
 }
-//-(void)handleTap:(UITapGestureRecognizer*)tap{
-//   CGPoint  p= [tap locationInView:self.view];
-//    NSLog(@"%@",NSStringFromCGPoint(p));
-//}
+
+
 /**
  *  初始化
  */
@@ -215,10 +203,7 @@
         }
         
     };
-    
-
-
-    
+     
     
 }
 

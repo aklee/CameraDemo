@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface FocusView : UIView
+
 +(instancetype)FocusView;
 
-
+/**
+ *  隐藏视图
+ */
 -(void)dismiss;
-
+/**
+ *  展示视图
+ */
 -(void)present;
 @end
