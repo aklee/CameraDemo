@@ -67,6 +67,7 @@
     self.turnBtn.selected=NO;
     self.flushBtn.selected=NO;
     
+    
 }
 
 - (IBAction)picture:(id)sender {

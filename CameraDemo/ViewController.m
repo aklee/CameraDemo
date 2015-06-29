@@ -202,18 +202,18 @@
             self.imagePickerVC.allowsEditing = YES;
          
             //设置拍照时的下方的工具栏是否显示，如果需要自定义拍摄界面，则可把该工具栏隐藏
-            self.imagePickerVC.showsCameraControls  = NO;
+            self.imagePickerVC.showsCameraControls  = YES;
           
             //设置使用后置摄像头，可以使用前置摄像头
             self.imagePickerVC.cameraDevice = UIImagePickerControllerCameraDeviceRear;
 
             //将取景框变成全屏
-            CGSize screenBounds = [UIScreen mainScreen].bounds.size;
-            CGFloat cameraAspectRatio = 4.0f/3.0f;
-            CGFloat camViewHeight = screenBounds.width * cameraAspectRatio;
-            CGFloat scale = screenBounds.height / camViewHeight;
-            self.imagePickerVC.cameraViewTransform = CGAffineTransformMakeTranslation(0, (screenBounds.height - camViewHeight) / 2.0);
-            self.imagePickerVC.cameraViewTransform = CGAffineTransformScale(self.imagePickerVC.cameraViewTransform, scale, scale);
+//            CGSize screenBounds = [UIScreen mainScreen].bounds.size;
+//            CGFloat cameraAspectRatio = 4.0f/3.0f;
+//            CGFloat camViewHeight = screenBounds.width * cameraAspectRatio;
+//            CGFloat scale = screenBounds.height / camViewHeight;
+//            self.imagePickerVC.cameraViewTransform = CGAffineTransformMakeTranslation(0, (screenBounds.height - camViewHeight) / 2.0);
+//            self.imagePickerVC.cameraViewTransform = CGAffineTransformScale(self.imagePickerVC.cameraViewTransform, scale, scale);
     
             
             //设置拍摄时屏幕的view的transform属性，可以实现旋转，缩放功能

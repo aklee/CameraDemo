@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		413808241B40DF5600C85162 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413808231B40DF5600C85162 /* AVFoundation.framework */; };
+		413808271B40E3F000C85162 /* FocusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 413808261B40E3F000C85162 /* FocusView.m */; };
+		413808291B40E3F700C85162 /* FocusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413808281B40E3F700C85162 /* FocusView.xib */; };
+		4138082C1B40E5BC00C85162 /* UIView+AK.m in Sources */ = {isa = PBXBuildFile; fileRef = 4138082B1B40E5BC00C85162 /* UIView+AK.m */; };
 		41494CFF1B3CDB1500957932 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41494CFE1B3CDB1500957932 /* main.m */; };
 		41494D021B3CDB1500957932 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41494D011B3CDB1500957932 /* AppDelegate.m */; };
 		41494D051B3CDB1500957932 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41494D041B3CDB1500957932 /* ViewController.m */; };
@@ -14,7 +18,6 @@
 		41494D0A1B3CDB1500957932 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41494D091B3CDB1500957932 /* Images.xcassets */; };
 		41494D0D1B3CDB1500957932 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41494D0B1B3CDB1500957932 /* LaunchScreen.xib */; };
 		41494D191B3CDB1500957932 /* CameraDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41494D181B3CDB1500957932 /* CameraDemoTests.m */; };
-		41BC102C1B3D2A6800B31861 /* 电子账户card标签@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BC102B1B3D2A6800B31861 /* 电子账户card标签@2x.png */; };
 		41BC10351B3D373A00B31861 /* ChooseImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BC102F1B3D373A00B31861 /* ChooseImageVC.m */; };
 		41BC10361B3D373A00B31861 /* CustomerCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BC10311B3D373A00B31861 /* CustomerCameraView.m */; };
 		41BC10371B3D373A00B31861 /* CustomerCameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41BC10321B3D373A00B31861 /* CustomerCameraView.xib */; };
@@ -32,6 +35,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		413808231B40DF5600C85162 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		413808251B40E3F000C85162 /* FocusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusView.h; sourceTree = "<group>"; };
+		413808261B40E3F000C85162 /* FocusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusView.m; sourceTree = "<group>"; };
+		413808281B40E3F700C85162 /* FocusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FocusView.xib; sourceTree = "<group>"; };
+		4138082A1B40E5BC00C85162 /* UIView+AK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AK.h"; sourceTree = "<group>"; };
+		4138082B1B40E5BC00C85162 /* UIView+AK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AK.m"; sourceTree = "<group>"; };
 		41494CF91B3CDB1500957932 /* CameraDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41494CFD1B3CDB1500957932 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41494CFE1B3CDB1500957932 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,7 +56,6 @@
 		41494D181B3CDB1500957932 /* CameraDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraDemoTests.m; sourceTree = "<group>"; };
 		41494D221B3CEAE100957932 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		41494D231B3CEAE100957932 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		41BC102B1B3D2A6800B31861 /* 电子账户card标签@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "电子账户card标签@2x.png"; path = "../../../APP客户端/UI视觉设计/切图/电子账户card标签@2x.png"; sourceTree = "<group>"; };
 		41BC102E1B3D373A00B31861 /* ChooseImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseImageVC.h; sourceTree = "<group>"; };
 		41BC102F1B3D373A00B31861 /* ChooseImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseImageVC.m; sourceTree = "<group>"; };
 		41BC10301B3D373A00B31861 /* CustomerCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCameraView.h; sourceTree = "<group>"; };
@@ -62,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				413808241B40DF5600C85162 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +87,7 @@
 		41494CF01B3CDB1500957932 = {
 			isa = PBXGroup;
 			children = (
+				413808231B40DF5600C85162 /* AVFoundation.framework */,
 				41494CFB1B3CDB1500957932 /* CameraDemo */,
 				41494D151B3CDB1500957932 /* CameraDemoTests */,
 				41494CFA1B3CDB1500957932 /* Products */,
@@ -101,9 +111,10 @@
 				41494D011B3CDB1500957932 /* AppDelegate.m */,
 				41494D031B3CDB1500957932 /* ViewController.h */,
 				41494D041B3CDB1500957932 /* ViewController.m */,
-				41BC102B1B3D2A6800B31861 /* 电子账户card标签@2x.png */,
 				41494D061B3CDB1500957932 /* Main.storyboard */,
 				41494D091B3CDB1500957932 /* Images.xcassets */,
+				4138082A1B40E5BC00C85162 /* UIView+AK.h */,
+				4138082B1B40E5BC00C85162 /* UIView+AK.m */,
 				41494D0B1B3CDB1500957932 /* LaunchScreen.xib */,
 				41494CFC1B3CDB1500957932 /* Supporting Files */,
 			);
@@ -146,6 +157,9 @@
 				41BC10321B3D373A00B31861 /* CustomerCameraView.xib */,
 				41BC10331B3D373A00B31861 /* MyCameraViewController.h */,
 				41BC10341B3D373A00B31861 /* MyCameraViewController.m */,
+				413808251B40E3F000C85162 /* FocusView.h */,
+				413808261B40E3F000C85162 /* FocusView.m */,
+				413808281B40E3F700C85162 /* FocusView.xib */,
 			);
 			path = CustomerCamera;
 			sourceTree = "<group>";
@@ -230,7 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41BC102C1B3D2A6800B31861 /* 电子账户card标签@2x.png in Resources */,
+				413808291B40E3F700C85162 /* FocusView.xib in Resources */,
 				41BC10371B3D373A00B31861 /* CustomerCameraView.xib in Resources */,
 				41494D081B3CDB1500957932 /* Main.storyboard in Resources */,
 				41494D0D1B3CDB1500957932 /* LaunchScreen.xib in Resources */,
@@ -257,6 +271,8 @@
 				41BC10361B3D373A00B31861 /* CustomerCameraView.m in Sources */,
 				41494D021B3CDB1500957932 /* AppDelegate.m in Sources */,
 				41BC10381B3D373A00B31861 /* MyCameraViewController.m in Sources */,
+				413808271B40E3F000C85162 /* FocusView.m in Sources */,
+				4138082C1B40E5BC00C85162 /* UIView+AK.m in Sources */,
 				41494CFF1B3CDB1500957932 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
