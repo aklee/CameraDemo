@@ -7,11 +7,15 @@
 //
 
 #import "MyCameraViewController.h"
+//使用kUTTypeImage等类型
 #import <MobileCoreServices/MobileCoreServices.h>
+//使用AVCaptureDevice
+#import <AVFoundation/AVCaptureDevice.h>
+//使用MediaType：AVMediaTypeVideo
+#import <AVFoundation/AVMediaFormat.h>
+
 #import "CustomerCameraView.h"
 #import "ChooseImageVC.h"
-#import <AVFoundation/AVCaptureDevice.h>
-#import <AVFoundation/AVMediaFormat.h>
 #import "FocusView.h"
 
 @interface MyCameraViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
@@ -23,6 +27,8 @@
 
 //自定义对焦层
 @property(nonatomic,strong)FocusView *focusView;
+
+@property (nonatomic, getter = isDeviceAuthorized) BOOL deviceAuthorized;
 @end
 
 @implementation MyCameraViewController
@@ -38,7 +44,9 @@
 -(void)viewWillAppear:(BOOL)animated{
    
     AVCaptureDevice*camDevice =[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+  
     int flags =NSKeyValueObservingOptionNew;
+    
     [camDevice addObserver:self forKeyPath:@"adjustingFocus" options:flags context:nil];
 
     [super viewWillAppear:animated];
@@ -74,7 +82,7 @@
     CGPoint p=[touch locationInView:self.view];
     //记录触点
     self.focusPoint=p;
-    NSLog(@"%@",NSStringFromCGPoint(p));
+    NSLog(@"记录触点:%@",NSStringFromCGPoint(p));
 }
 
 
@@ -82,6 +90,9 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+
+    //检测是否有权限访问相机
+    [self checkDeviceAuthorizationStatus];
     
 #if TARGET_IPHONE_SIMULATOR
     NSLog(@"not suport simulator");
@@ -95,7 +106,6 @@
     //初始化
     [self setup];
 
-    
     
     //建议 使用animation 动态展示相机层
     [self.view addSubview:self.imagePickerVC.view];
@@ -145,30 +155,30 @@
      //自定义相机图层
     
     //设置拍照时的下方的工具栏是否显示，如果需要自定义拍摄界面，则可把该工具栏隐藏
-    self.imagePickerVC.showsCameraControls  = NO;
+    self.imagePickerVC.showsCameraControls = NO;
     
-    CustomerCameraView*view=[CustomerCameraView CustomerCameraView];
+    CustomerCameraView*view = [CustomerCameraView CustomerCameraView];
    
-    self.imagePickerVC.cameraOverlayView=view;
+    self.imagePickerVC.cameraOverlayView = view;
     
     self.cameraView=view;
     
     
     
     
-    view.backBlock=^{
+    view.backBlock = ^{
         [self.navigationController popToRootViewControllerAnimated:YES];
     };
     
-    view.TakePhotoBlock=^{
+    view.TakePhotoBlock = ^{
         [self.imagePickerVC takePicture];
     };
     
-    view.chooseImageBlock=^{
+    view.chooseImageBlock = ^{
         
-        ChooseImageVC *vc=[[ChooseImageVC alloc]init];
+        ChooseImageVC *vc = [[ChooseImageVC alloc]init];
         
-        vc.chooseImageBlock=^(UIImage* image){
+        vc.chooseImageBlock = ^(UIImage* image){
             NSLog(@"获取选择图片");
         };
         
@@ -203,8 +213,37 @@
         }
         
     };
-     
     
+    
+}
+#pragma mark Authorization
+
+/**
+ *  检查访问权限
+ */
+- (void)checkDeviceAuthorizationStatus
+{
+    NSString *mediaType = AVMediaTypeVideo;
+    
+    [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
+        if (granted)
+        {
+            //Granted access to mediaType
+            [self setDeviceAuthorized:YES];
+        }
+        else
+        {
+            //Not granted access to mediaType
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[[UIAlertView alloc] initWithTitle:@"Sorry!"
+                                            message:@"AVCam doesn't have permission to use Camera, please change privacy settings"
+                                           delegate:self
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil] show];
+                [self setDeviceAuthorized:NO];
+            });
+        }
+    }];
 }
 
 #pragma mark Delegate

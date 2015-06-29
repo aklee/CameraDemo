@@ -116,14 +116,28 @@
 -(void)latestImage{
     
     
-    //获取相册最后一张图片
-    [self latestPhotoWithCompletion:^(UIImage *photo) {
+    // get the latest image from the album
+    ALAuthorizationStatus status = [ALAssetsLibrary authorizationStatus];
+    if (status != ALAuthorizationStatusDenied) {
+        // access to album is authorised
         
-    [self.chooseBtn setImage:photo forState:UIControlStateNormal];
+        //获取相册最后一张图片
+        [self latestPhotoWithCompletion:^(UIImage *photo) {
+            
+            [self.chooseBtn setImage:photo forState:UIControlStateNormal];
+            
+        }];
         
-    }];
-    
-    
+
+    }
+    else{
+        [[[UIAlertView alloc] initWithTitle:@"Sorry!"
+                                    message:@"ALAssetsLibrary doesn't have permission"
+                                   delegate:self
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+
+    }
    
 }
 
